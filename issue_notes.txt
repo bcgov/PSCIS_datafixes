@@ -1,0 +1,14 @@
+## duplicates
+
+126508,57600 - HORS
+50157,62514 - ELKR - these are on an unmapped stream
+50181,103033 - ELKR
+62516,50153 - Al uses the 62513 id in Elk confirmations
+103033, 50181 - ELKR
+
+## location
+62186 - nowhere near a road
+62187 - nowhere near a road
+
+## status
+62421, 62422 - these sites have been remediated but no design or remediation was sumbmitted to PSCIS
