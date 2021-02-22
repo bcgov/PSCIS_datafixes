@@ -14,4 +14,4 @@ https://www2.gov.bc.ca/assets/gov/environment/natural-resource-stewardship/land-
 - use issues in this repo for quickly logging a PSCIS data error (and proposed fix)
 - generate code to apply fixes
 
-Note that fixe scripts need to reflect the operational `PSCIS` database and must be tested against a copy of this db for validity.
+Note that fixe scripts need to reflect the operational `PSCIS` database and must be tested against a copy of this db (internal to @bcgov) for validity.
