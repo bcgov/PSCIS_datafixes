@@ -14,7 +14,7 @@ Identify the crossing with its `stream_crossing_id`, include references to other
 
 *EXAMPLE:*
 
-stream_crossing_id: 3138, McQuarrie Creek
+stream_crossing_id: 3138, McQuarrie Creek: [PSCIS source](https://openmaps.gov.bc.ca/geo/pub/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=WHSE_FISH.PSCIS_ASSESSMENT_SVW&outputFormat=json&SRSNAME=epsg%3A4326&CQL_FILTER=STREAM_CROSSING_ID%3D3318)
 
 - crossing_type_code should be CBS
 - barrier_result_code should be BARRER 
