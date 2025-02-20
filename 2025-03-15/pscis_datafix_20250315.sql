@@ -20,13 +20,30 @@ SET
   geometry = SDO_GEOMETRY(
     2001,
     3005,
-    SDO_POINT_TYPE(1206572.6165631632, 1114594.8888236226, NULL),
+    SDO_POINT_TYPE(1206572.6, 1114594.9, NULL),
     NULL,
     NULL
   ),
-  who_updated = 'DATAFIX_20250217',
+  who_updated = 'DATAFIX_20250315',
   when_updated = sysdate
 WHERE stream_crossing_id = 197488;
 
 
+-- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/15
+-- ----------------------------------
+-- delete submission 7190 and all associated data
+DELETE FROM pscis.pscis_crossing_assessments
+WHERE submission_id = 7190;
 
+DELETE FROM pscis.pscis_structures
+WHERE stream_crossing_id = 198380;
+
+DELETE FROM pscis.pscis_stream_cross_loc_point
+WHERE stream_crossing_id = 198380;
+
+DELETE FROM pscis.pscis_submissions
+WHERE submission_id = 7190;
+
+DELETE FROM pscis.pscis_attachments
+WHERE assessment_id = 199620;
