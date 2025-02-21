@@ -11,10 +11,45 @@ PSCIS layers available through DataBC Catalogue:
 
 ## Workflow
 
-- open issues in this repo for quickly logging a PSCIS data error (and noting proposed fix if apparent)
-- generate code to apply fixes (todo)
+- to log a PSCIS data error, open an issue in this repo (and note proposed fix if apparent)
+- when a data fix has been requested/scheduled, generate scripts to apply fixes:
+	+ create date stamped folder in /fixes
+	+ add readme and sql files per previous fixes
+	+ populate sql with data fix commands
+	+ request replication of current PSCIS data from `ENVPROD1` to `ENVTEST1`
+	+ test scripts against newly replicated data in `ENVTEST1` (requires internal access to bcgov networks)
+	+ check out the PSCIS svn repo, add fix folder, commit to svn
+	+ DBA to apply scripts to both `TEST` and `PROD`
 
-Note that fix scripts need to reflect the operational `PSCIS` database and must be tested against a copy of this db (internal to @bcgov) for validity.
+## svn example
+
+```
+# check out the repo
+$ svn checkout https://a100.gov.bc.ca/pub/svn/pscis/data-fix pscis_repo
+
+# copy prepped fixes to svn
+$ cp -r fixes/2019-11-20 pscis_repo/2019-11-20
+
+# check status
+$ cd chkout
+$ svn status
+?       2019-11-20
+
+$ svn add 2019-11-20
+A         2019-11-20
+A         2019-11-20/pscis_datafix.sql
+A         2019-11-20/pscis_datafix_master.sql
+A         2019-11-20/readme.txt
+
+$ svn commit -m "relevant commit message"
+Adding         2019-11-20
+Adding         2019-11-20/pscis_datafix.sql
+Adding         2019-11-20/pscis_datafix_master.sql
+Adding         2019-11-20/readme.txt
+
+Transmitting file data ....
+Committed revision 97.
+```	
 
 ## References
 
