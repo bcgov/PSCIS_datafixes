@@ -18,7 +18,7 @@ PSCIS layers available through DataBC Catalogue:
 	+ populate sql with data fix commands
 	+ request replication of current PSCIS data from `ENVPROD1` to `ENVTEST1`
 	+ test scripts against newly replicated data in `ENVTEST1` (requires internal access to bcgov networks)
-	+ check out the PSCIS svn repo, add fix folder, commit to svn
+	+ check out the PSCIS svn repo, add fix folder, commit to svn (see below)
 	+ DBA to apply scripts to both `TEST` and `PROD`
 
 ## svn example
