@@ -1,4 +1,20 @@
 -- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/8
+-- ----------------------------------
+DELETE FROM pscis.pscis_attachments
+WHERE assessment_id = 61615;
+
+DELETE FROM pscis.pscis_crossing_assessments
+WHERE assessment_id = 61615;
+
+DELETE FROM pscis.pscis_structures
+WHERE stream_crossing_id = 61502;
+
+DELETE FROM pscis.pscis_stream_cross_loc_point
+WHERE stream_crossing_id = 61502;
+
+
+-- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/4
 -- ----------------------------------
 UPDATE pscis.pscis_stream_cross_loc_point
