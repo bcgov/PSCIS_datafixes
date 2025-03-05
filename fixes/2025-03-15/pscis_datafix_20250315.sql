@@ -1,4 +1,24 @@
 -- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/4
+-- ----------------------------------
+UPDATE pscis.pscis_stream_cross_loc_point
+SET
+  utm_zone = 10,
+  utm_easting = 372585,
+  utm_northing = 5657234,
+  geometry = SDO_GEOMETRY(
+    2001,
+    3005,
+    SDO_POINT_TYPE(1502176.6,696424.7, NULL),
+    NULL,
+    NULL
+  ),
+  who_updated = 'DATAFIX_20250315',
+  when_updated = sysdate
+WHERE stream_crossing_id = 3554;
+
+
+-- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/22
 -- ----------------------------------
 UPDATE pscis.pscis_stream_cross_loc_point
