@@ -1,4 +1,32 @@
 -- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/5
+-- ----------------------------------
+-- switch mis-classified crossings from OBS pipe arch to CBS culvert/oval culvert
+
+UPDATE pscis.pscis_structures
+SET
+  crossing_type_code = 'CBS',
+  crossing_subtype_code = 'OVAL',
+  who_updated = 'DATAFIX_20250315',
+  when_updated = sysdate
+WHERE stream_crossing_id = 3138;
+
+UPDATE pscis.pscis_crossing_assessments
+SET
+  culvert_length_score = 6,                 -- length=43m
+  embed_score = 10,                         -- embedded=false
+  outlet_drop_score = 10,                   -- drop=.46m
+  culvert_slope_score = 0,                  -- slope=.8
+  stream_width_ratio_score = 6,             -- swr=1.581
+  final_score = 32,
+  barrier_result_code = 'BARRIER',          -- >19 is a barrier
+  who_updated = 'DATAFIX_20250315',
+  when_updated = sysdate
+WHERE stream_crossing_id = 3138;
+
+
+
+-- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/8
 -- ----------------------------------
 DELETE FROM pscis.pscis_attachments
