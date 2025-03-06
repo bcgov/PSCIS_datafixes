@@ -1,4 +1,24 @@
 -- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/9
+-- ----------------------------------
+-- just a single digit was off in the submission
+UPDATE pscis.pscis_stream_cross_loc_point
+SET
+  utm_zone = 11,
+  utm_easting = 644765,
+  utm_northing = 5446625,
+  geometry = SDO_GEOMETRY(
+    2001,
+    3005,
+    SDO_POINT_TYPE(1798965.2, 522008.2, NULL),
+    NULL,
+    NULL
+  ),
+  who_updated = 'DATAFIX_20250315',
+  when_updated = sysdate
+WHERE stream_crossing_id = 62184;
+
+-- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/5
 -- ----------------------------------
 -- switch mis-classified crossings from OBS pipe arch to CBS culvert/oval culvert
@@ -47,7 +67,7 @@ WHERE stream_crossing_id = 61502;
 -- ----------------------------------
 UPDATE pscis.pscis_stream_cross_loc_point
 SET
-  utm_zone = 10,
+  utm_zone = 11,
   utm_easting = 372585,
   utm_northing = 5657234,
   geometry = SDO_GEOMETRY(
