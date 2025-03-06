@@ -1,4 +1,22 @@
 -- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/26
+-- ----------------------------------
+-- delete all weirs
+
+DELETE FROM pscis.pscis_attachments
+WHERE assessment_id in (1000,1001,4723,4745,4752,7517,7518,7519,7520,7531);
+
+DELETE FROM pscis.pscis_crossing_assessments
+WHERE stream_crossing_id in (1000,1001,4723,4745,4752,7517,7518,7519,7520,7531);
+
+DELETE FROM pscis.pscis_structures
+WHERE stream_crossing_id in (1000,1001,4723,4745,4752,7517,7518,7519,7520,7531);
+
+DELETE FROM pscis.pscis_stream_cross_loc_point
+WHERE stream_crossing_id in (1000,1001,4723,4745,4752,7517,7518,7519,7520,7531);
+
+
+-- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/9
 -- ----------------------------------
 -- just a single digit was off in the submission
@@ -106,6 +124,9 @@ WHERE stream_crossing_id = 197488;
 -- https://github.com/smnorris/PSCIS_datafixes/issues/15
 -- ----------------------------------
 -- delete submission 7190 and all associated data
+DELETE FROM pscis.pscis_attachments
+WHERE assessment_id = 199620;
+
 DELETE FROM pscis.pscis_crossing_assessments
 WHERE submission_id = 7190;
 
@@ -117,6 +138,3 @@ WHERE stream_crossing_id = 198380;
 
 DELETE FROM pscis.pscis_submissions
 WHERE submission_id = 7190;
-
-DELETE FROM pscis.pscis_attachments
-WHERE assessment_id = 199620;
