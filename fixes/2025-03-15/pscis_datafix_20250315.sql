@@ -1,4 +1,22 @@
 -- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/27
+-- ----------------------------------
+-- delete all tide gates
+
+DELETE FROM pscis.pscis_attachments
+WHERE assessment_id in (51660,51879,51981,52015,54167);
+
+DELETE FROM pscis.pscis_crossing_assessments
+WHERE stream_crossing_id in (51660,51879,51981,52015,54142);
+
+DELETE FROM pscis.pscis_structures
+WHERE stream_crossing_id in (51660,51879,51981,52015,54142);
+
+DELETE FROM pscis.pscis_stream_cross_loc_point
+WHERE stream_crossing_id in (51660,51879,51981,52015,54142);
+
+
+-- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/26
 -- ----------------------------------
 -- delete all weirs
