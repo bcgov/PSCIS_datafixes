@@ -1,6 +1,7 @@
 -- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/25
 -- ----------------------------------
+-- note that these crossings are not currently in TEST (too new)
 UPDATE pscis.pscis_stream_cross_loc_point
 SET
   utm_zone = 10,
