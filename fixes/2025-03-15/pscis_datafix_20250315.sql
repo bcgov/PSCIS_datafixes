@@ -1,4 +1,23 @@
 -- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/12
+-- ----------------------------------
+-- Delete the secondary culvert. A single
+-- crossing with 2 pipes was initially assessed 2x,
+-- and flow has migrated (as of 2021) to 62245 - retain just that crossing
+
+DELETE FROM pscis.pscis_attachments
+WHERE assessment_id = 62384;
+
+DELETE FROM pscis.pscis_crossing_assessments
+WHERE stream_crossing_id = 62244;
+
+DELETE FROM pscis.pscis_structures
+WHERE stream_crossing_id = 62244;
+
+DELETE FROM pscis.pscis_stream_cross_loc_point
+WHERE stream_crossing_id = 62244;
+
+-- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/27
 -- ----------------------------------
 -- delete all tide gates
