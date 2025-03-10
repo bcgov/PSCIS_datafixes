@@ -15,7 +15,7 @@ SET
   ),
   who_updated = 'DATAFIX_20250315',
   when_updated = sysdate
-WHERE stream_crossing_id = 203134;
+WHERE stream_crossing_id = 203154;
 
 UPDATE pscis.pscis_stream_cross_loc_point
 SET
@@ -31,7 +31,7 @@ SET
   ),
   who_updated = 'DATAFIX_20250315',
   when_updated = sysdate
-WHERE stream_crossing_id = 204704;
+WHERE stream_crossing_id = 203158;
 
 -- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/12
