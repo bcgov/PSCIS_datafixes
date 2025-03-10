@@ -1,4 +1,39 @@
 -- ----------------------------------
+-- https://github.com/smnorris/PSCIS_datafixes/issues/25
+-- ----------------------------------
+UPDATE pscis.pscis_stream_cross_loc_point
+SET
+  utm_zone = 10,
+  utm_easting = 539471,
+  utm_northing = 5881752,
+  geometry = SDO_GEOMETRY(
+    2001,
+    3005,
+    SDO_POINT_TYPE(1239813.8, 903452.3, NULL),
+    NULL,
+    NULL
+  ),
+  who_updated = 'DATAFIX_20250315',
+  when_updated = sysdate
+WHERE stream_crossing_id = 203134;
+
+UPDATE pscis.pscis_stream_cross_loc_point
+SET
+  utm_zone = 10,
+  utm_easting = 556539,
+  utm_northing = 5855759,
+  geometry = SDO_GEOMETRY(
+    2001,
+    3005,
+    SDO_POINT_TYPE(1257940.7, 878133.5, NULL),
+    NULL,
+    NULL
+  ),
+  who_updated = 'DATAFIX_20250315',
+  when_updated = sysdate
+WHERE stream_crossing_id = 204704;
+
+-- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/12
 -- ----------------------------------
 -- Delete the secondary culvert. A single
@@ -16,6 +51,7 @@ WHERE stream_crossing_id = 62244;
 
 DELETE FROM pscis.pscis_stream_cross_loc_point
 WHERE stream_crossing_id = 62244;
+
 
 -- ----------------------------------
 -- https://github.com/smnorris/PSCIS_datafixes/issues/27
